@@ -1,0 +1,9 @@
+Phantom Mode -
+This mode is like Tic Tac Toe, with a 5x5 board, but with a twist. 
+Player 1 is X and player 2 is O, players play turn by turn.
+A player chooses his desired spot by clicking on it, and if the spot is taken, he has to retry.
+The twist is, that when the user chooses his desired spot, 
+the board will show random configurations, changing with each turn.
+A player wins when he connects 4 of his symbols either horizontally, vertically, or diagonally.
+The match is tied when there is no remaining move left.
+The board updates to show the real arrangement when a person wins, or it's a tie.

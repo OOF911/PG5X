@@ -1,0 +1,6 @@
+Normal Mode -
+This mode is like regular Tic Tac Toe, with a 5x5 board.
+Player 1 is X and player 2 is O, players play turn by turn.
+A player chooses his desired spot by clicking on it, and if the spot is taken, he has to retry.
+A player wins when he connects 4 of his symbols either horizontally, vertically, or diagonally.
+The match is tied when there is no remaining move left.
