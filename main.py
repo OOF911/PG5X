@@ -6,7 +6,7 @@ import tkinter as tk
 from tkinter import messagebox
 from PIL import Image, ImageTk
 import time, random
-# pdb.set_trace()
+
 
 def home():
     global p1n, p2n, mode, players, buttons
@@ -30,25 +30,25 @@ def disable_buttons():
             buttons[x][y]["command"] = 0
 
 def is_winner(board, player):
-    # Check rows for 4 consecutive symbols
+    #rows
     for row in range(5):
         for col in range(2):
             if board[row][col] == board[row][col+1] == board[row][col+2] == board[row][col+3] == player:
                 return True
     
-    # Check columns for 4 consecutive symbols
+    # olumns
     for col in range(5):
         for row in range(2):
             if board[row][col] == board[row+1][col] == board[row+2][col] == board[row+3][col] == player:
                 return True
     
-    # Check diagonals (top-left to bottom-right) for 4 consecutive symbols
+    #diagonal 1->25
     for row in range(2):
         for col in range(2):
             if board[row][col] == board[row+1][col+1] == board[row+2][col+2] == board[row+3][col+3] == player:
                 return True
 
-    # Check diagonals (top-right to bottom-left) for 4 consecutive symbols
+    #diagonal 21->5
     for row in range(2):
         for col in range(3, 5):
             if board[row][col] == board[row+1][col-1] == board[row+2][col-2] == board[row+3][col-3] == player:
@@ -87,7 +87,6 @@ def update_board(row, col):
             update_winner()
             restart = tk.Button(root, image=r_image, width=50, height=50, highlightthickness=0, bd=0, borderwidth=0, command=create_gui)
             restart.grid(row=6, column=0)
-            # root.quit()
         elif is_tie(board):
             winner = None
             disable_buttons()
@@ -103,7 +102,6 @@ def update_board(row, col):
             update_winner()
             restart = tk.Button(root, image=r_image, width=40, height=40, command=create_gui)
             restart.grid(row=6, column=0)
-            # root.quit()
         else:
             current_player = (current_player + 1) % 2
             status_label.config(text=f"{players[current_player]}'S TURN")
@@ -150,9 +148,6 @@ def stop():
     sv.set(" ")
     p1nv.set(" ")
     p2nv.set(" ")
-    # sv.destroy()
-    # p1n.destroy()
-    # p2n.destroy()
     root.destroy()
 
 # Initialize game data
@@ -160,12 +155,10 @@ board = create_board()
 symbols = ['X', 'O', " "]
 current_player = 0
 
-# Initialize GUI
 root = tk.Tk()
 root.title("Phantom Grid 5X")
 root.configure(bg='black')
 
-# Load images
 x_image = Image.open("Images/X.jpeg")
 o_image = Image.open("Images/O.jpeg")
 blank_image = Image.open("Images/Blank.jpeg")
@@ -227,19 +220,6 @@ def namode():
     root.wait_variable(p1nv)
     root.wait_variable(p2nv)
     root.wait_variable(sv)
-
-    # a.destroy()
-    # b.destroy()
-    # p1.destroy()
-    # p2.destroy()
-    # label.destroy()
-    # welcome.destroy()
-    # x.destroy()
-    # y.destroy()
-    # z.destroy()
-    # r1.destroy()
-    # r2.destroy()
-    # r3.destroy()
 
     return p1nv.get().upper(), p2nv.get().upper(), sv.get()
 
