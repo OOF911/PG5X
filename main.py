@@ -1,4 +1,3 @@
-# Phantom Grid 5X
 import pickle
 import pdb
 import os
@@ -30,25 +29,25 @@ def disable_buttons():
             buttons[x][y]["command"] = 0
 
 def is_winner(board, player):
-    #rows
+    # rows
     for row in range(5):
         for col in range(2):
             if board[row][col] == board[row][col+1] == board[row][col+2] == board[row][col+3] == player:
                 return True
     
-    # olumns
+    # columns
     for col in range(5):
         for row in range(2):
             if board[row][col] == board[row+1][col] == board[row+2][col] == board[row+3][col] == player:
                 return True
     
-    #diagonal 1->25
+    # diagonal 1->25
     for row in range(2):
         for col in range(2):
             if board[row][col] == board[row+1][col+1] == board[row+2][col+2] == board[row+3][col+3] == player:
                 return True
 
-    #diagonal 21->5
+    # diagonal 21->5
     for row in range(2):
         for col in range(3, 5):
             if board[row][col] == board[row+1][col-1] == board[row+2][col-2] == board[row+3][col-3] == player:
